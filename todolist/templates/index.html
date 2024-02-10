@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+</html>
+<head><title>Django To Do List</title></head>
+<style>
+    body{
+        margin:0;
+    }
+    ul{
+        margin: 0;
+        padding: 0;
+    }
+    *{
+        box-sizing: border-box;
+    }
+    .box{
+        background-color:red;
+        padding: 40px;
+        color:white;
+    }
+    .button{
+        padding:10px;
+        background:gray;
+        text-align:center;
+    }
+    .input{
+        margin:0px;
+        border:none;
+        padding:10px;
+        font-size:12px;
+    }
+    ul li{
+        padding:12px;
+        background: #eee;
+        font-size:19px;
+    }
+    ul li:hover{
+        background: #c87a7a;
+    }
+    ul li.checked{
+        background: #888;
+        color: #d56e6e;
+    }
+</style>
+<body>
+    <div class="box">
+    <h2 style="margin : 3px">To do list</h2>
+    <form action = "" method = "POST">
+        {% csrf_token %}
+    <button type = "submit" class ="button">Add</button>
+    <input type = "text" name = "title" placeholder = "To do" class="input">
+    </form>
+    </div>
+       {% for todo in todos %}
+       <li>{{todo.title | title}}</li>
+       {% endfor %} 
+</body>
+</html>
